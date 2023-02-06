@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useAppContext } from "../store/store";
 
 export default function Create() {
     const [title, setTitle] = useState("");
@@ -7,6 +8,8 @@ export default function Create() {
     const [intro, setIntro] = useState("");
     const [completed, setCompleted] = useState(false);
     const [review, setReview] = useState("");
+
+    const store = useAppContext();
 
     function handleChange(e) {
         const name = e.target.name;
@@ -58,7 +61,8 @@ export default function Create() {
             review,
         };
 
-        /* Mandar a registrar el libro */
+        /* Registrar libro */
+        store.createItem(newBook);
     }
 
     return (
