@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Layout from "../components/layout";
 import { useAppContext } from "../store/store";
 
 export default function Create() {
@@ -66,7 +67,7 @@ export default function Create() {
     }
 
     return (
-        <div>
+        <Layout>
             <form onSubmit={handleSubmit}>
                 <div>
                     <div>Title</div>
@@ -136,6 +137,6 @@ export default function Create() {
 
                 <input type="submit" value="Register book" />
             </form>
-        </div>
+        </Layout>
     )
 }

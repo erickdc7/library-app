@@ -1,17 +1,17 @@
+import Book from "../components/book";
+import Layout from "../components/layout";
 import { useAppContext } from "../store/store"
 
 export default function Index() {
     const store = useAppContext();
 
     return (
-        <div>
+        <Layout>
             {
                 store.items.map(item => (
-                    <div>
-                        {item.title}
-                    </div>
+                    <Book key={item.id} item={item} />
                 ))
             }
-        </div>
+        </Layout>
     )
 }
