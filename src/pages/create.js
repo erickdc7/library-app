@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 import Layout from "../components/layout";
 import { useAppContext } from "../store/store";
 
@@ -11,6 +12,7 @@ export default function Create() {
     const [review, setReview] = useState("");
 
     const store = useAppContext();
+    const navigate = useNavigate();
 
     function handleChange(e) {
         const name = e.target.name;
@@ -64,6 +66,7 @@ export default function Create() {
 
         /* Registrar libro */
         store.createItem(newBook);
+        navigate('/');
     }
 
     return (
